@@ -105,4 +105,18 @@ for tick in tickers:
         income_statement_dict[tick][col] = income_statement_dict[tick][col].str.replace('-', '')
         income_statement_dict[tick][col] = pd.to_numeric(income_statement_dict[tick][col],errors="coerce")
         print(income_statement_dict[tick][col])
+
+for tick in tickers:
+    for col in balance_sheet_dict[tick].columns:
+        balance_sheet_dict[tick][col] = balance_sheet_dict[tick][col].str.replace(',', '')
+        balance_sheet_dict[tick][col] = balance_sheet_dict[tick][col].str.replace('-', '')
+        balance_sheet_dict[tick][col] = pd.to_numeric(balance_sheet_dict[tick][col],errors="coerce")
+        print(balance_sheet_dict[tick][col])
+
+for tick in tickers:
+    for col in cash_flow_dict[tick].columns:
+        cash_flow_dict[tick][col] = cash_flow_dict[tick][col].str.replace(',', '')
+        cash_flow_dict[tick][col] = cash_flow_dict[tick][col].str.replace('-', '')
+        cash_flow_dict[tick][col] = pd.to_numeric(cash_flow_dict[tick][col],errors="coerce")
+        print(cash_flow_dict[tick][col])
 # print(income_statement_dict)
