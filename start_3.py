@@ -22,6 +22,7 @@ for tabl in tables:
 # # print(headings)
     rows = tabl.find_all("tr", {"class": "svelte-104jbnt alt"})
     for row in rows:
+        temp_stats[row.get_text(separator="|").split("|")[0]] =  row.get_text(separator="|").split("|")[1:]
         temp_stats[row.get_text(separator="|").split("|")[0]] = [item for item in row.get_text(separator="|").split("|")[1:] if item.strip()]
 print(temp_stats)
 
